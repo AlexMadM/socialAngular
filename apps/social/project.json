@@ -18,7 +18,8 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/social/public"
+            "input": "public"
+
           }
         ],
         "styles": ["apps/social/src/styles.scss"]

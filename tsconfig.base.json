@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@apps/auth": ["libs/auth/src/index.ts"],
+      "@apps/common-ui": ["libs/common-ui/src/index.ts"],
+      "@apps/profile": ["libs/profile/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

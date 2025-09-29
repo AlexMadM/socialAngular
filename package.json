@@ -2,7 +2,10 @@
   "name": "@apps/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve social -o",
+    "build": "nx build social"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~20.1.0",
@@ -11,7 +14,9 @@
     "@angular/forms": "~20.1.0",
     "@angular/platform-browser": "~20.1.0",
     "@angular/router": "~20.1.0",
+    "ngx-cookie-service": "^20.1.0",
     "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -36,6 +41,7 @@
     "angular-eslint": "^20.0.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
+    "ng-packagr": "^20.1.0",
     "nx": "21.4.0",
     "prettier": "^2.6.2",
     "tslib": "^2.3.0",
