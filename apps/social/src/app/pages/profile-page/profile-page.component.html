@@ -1,4 +1,32 @@
 @if (profile$ | async; as profile) {
 
   <app-profile-header [profile]="profile" ></app-profile-header>
+
+
+<main class="main-content">
+<div class="comments"></div>
+  <div>
+    <h3 class="h6 mb16">Подписчики</h3>
+    <div class="subscribers-wrapper mb32">
+      @for (subscriber of subscribers$ | async; track subscriber.id) {
+        <a
+          class="subscriber-avatar-btn"
+          [routerLink]="['/profile', subscriber.id]"
+        >
+          <img alt="" [src]="subscriber.avatarUrl | imgUrl" />
+        </a>
+      }
+      <a class="to-subscribers-search" [routerLink]="['/search']"> </a>
+    </div>
+    <h3 class="h6 mb16">Навыки</h3>
+    <div class="stack-wrapper mb32">
+      @for (skill of profile.stack; track skill) {
+        <div class="skill-tag">{{ skill }}</div>
+      }
+    </div>
+
+    <h3 class="h6 mb16">О cебе</h3>
+    <p class="medium-text">{{ profile.description }}</p>
+  </div>
+</main>
 }
