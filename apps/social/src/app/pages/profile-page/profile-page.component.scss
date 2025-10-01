@@ -1,15 +1,22 @@
 .main-content{
   display: grid;
   grid-template-columns: 1fr 340px ;
-  gap:64px
-}
-.subscriber-avatar-btn{
-  width:32px;
-  height:32px;
-  border-radius: 50%;
-}
+  gap:64px;
+  margin-top: 48px;
 
-.subscribers-wrapper{
-  display: grid;
-  gap:6px
+}
+.subscriber-avatar-btn {
+  width: 36px;
+  height: 36px;
+
+  img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+}
+.subscribers-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }

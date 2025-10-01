@@ -1,17 +1,24 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { ProfileService } from '@apps/profile';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { subscribeOn, switchMap } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
 import { ProfileHeaderComponent } from '../../common-ui/profile-header.component';
 import { ImgUrlPipe } from '@apps/common-ui';
+import { PostFeedComponent } from '@apps/posts';
 
 
 
 @Component({
   selector: 'app-profile-page',
-  imports: [AsyncPipe, ProfileHeaderComponent, RouterLink, ImgUrlPipe],
+  imports: [
+    AsyncPipe,
+    ProfileHeaderComponent,
+    RouterLink,
+    ImgUrlPipe,
+    PostFeedComponent,
+  ],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss',
 })

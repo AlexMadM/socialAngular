@@ -1,0 +1,21 @@
+<div class="post-input">
+  @if (profile(); as profile) {
+    <app-avatar-circle
+      class="post-input__avatar"
+      [avatarUrl]="profile.avatarUrl"
+    ></app-avatar-circle>
+  }
+
+  <input
+    type="text"
+    class="post-input__field"
+    placeholder="Напишите что-нибудь"
+  >
+
+  <button class="post-input__submit">
+    <svg icon="send-message">
+      <use href="assets/svg/send.svg#send"></use>
+    </svg>
+  </button>
+</div>
+
