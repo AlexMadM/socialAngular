@@ -1,0 +1,41 @@
+import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { AvatarCircleComponent, SvgIconComponent } from '@apps/common-ui';
+import { DatePipe } from '@angular/common';
+import { Post, PostComment } from '../../data/interfaces/post.interface';
+import { CommentComponent, PostInputComponent } from '../../ui';
+import { PostService } from '../../data/services/post-service';
+import { firstValueFrom } from 'rxjs';
+
+
+
+@Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'app-post',
+  imports: [
+    AvatarCircleComponent,
+    DatePipe,
+    SvgIconComponent,
+    PostInputComponent,
+    CommentComponent,
+  ],
+  templateUrl: './post.component.html',
+  styleUrl: './post.component.scss',
+})
+export class PostComponent implements OnInit {
+  post = input<Post>();
+
+  comments = signal<PostComment[]>([]);
+
+  postService = inject(PostService);
+
+  async ngOnInit() {
+    this.comments.set(this.post()!.comments);
+  }
+
+  async onCreated() {
+    const comments = await firstValueFrom(
+      this.postService.getCommentsByPostId(this.post()!.id)
+    );
+    this.comments.set(comments);
+  }
+}

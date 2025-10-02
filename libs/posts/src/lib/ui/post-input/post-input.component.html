@@ -1,21 +1,15 @@
-<div class="post-input">
-  @if (profile(); as profile) {
-    <app-avatar-circle
-      class="post-input__avatar"
-      [avatarUrl]="profile.avatarUrl"
-    ></app-avatar-circle>
-  }
+<app-avatar-circle
+  *ngIf="profile() as profile"
+  class="size32"
+  [avatarUrl]="profile.avatarUrl"
+></app-avatar-circle>
 
-  <input
-    type="text"
-    class="post-input__field"
-    placeholder="Напишите что-нибудь"
-  >
+<textarea
+  [(ngModel)]="postText"
+  class="hidden-textarea"
+  (input)="onTextAreaInput($event)"
+></textarea>
 
-  <button class="post-input__submit">
-    <svg icon="send-message">
-      <use href="assets/svg/send.svg#send"></use>
-    </svg>
-  </button>
-</div>
-
+<button class="btn-icon" (click)="onCreatePost()">
+  <svg icon="send-message" class="svg16"></svg>
+</button>

@@ -1,54 +1,26 @@
-.post-input {
-  display: flex;
+:host {
+  display: grid;
+  padding: 16px;
+  background: var(--dark-color);
+  border: 1px solid var(--light-color);
+  grid-template-columns: 32px 1fr 44px;
+  grid-gap: 12px;
   align-items: center;
-  gap: 12px;
-  background: #000000;
-  border: 1px solid #333333;
-  border-radius: 12px;
-  padding: 8px 12px;
+}
 
-  &__avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
+.hidden-textarea {
+  resize: none;
+  background: var(--dark-color);
+  border: none;
+  color: var(--light-color);
+
+  &:hover,
+  &:focus-visible {
+    outline: 1px solid var(--primary-color);
   }
+}
 
-  &__field {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 14px;
-    outline: none;
-
-    &::placeholder {
-      color: #666666;
-    }
-  }
-
-  &__submit {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #7c3aed;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: background 0.2s;
-
-    &:hover {
-      background: #6d28d9;
-    }
-
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: #ffffff;
-    }
-  }
+:host.comment {
+  border: 1px dashed var(--light-color);
+  border-radius: 4px;
 }
