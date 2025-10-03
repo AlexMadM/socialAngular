@@ -2,7 +2,7 @@
 // import { inject, Injectable, signal } from '@angular/core';
 // import {Pageble} from '@tt/shared';
 // import { map, tap } from 'rxjs';
-// import {Profile} from '../interfaces/profile.interface';
+// import {Profile} from '../services/profile.interface';
 //
 // @Injectable({
 //   providedIn: 'root',

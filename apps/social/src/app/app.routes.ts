@@ -4,6 +4,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { LoginPage } from './pages/login-page/login.page';
 import { canActivateAuth } from '@apps/auth';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { chatsRoutes } from './pages/chats-page/chatsRoutes';
 
 export const appRoutes: Route[] = [{
   path: '',
@@ -13,10 +14,10 @@ export const appRoutes: Route[] = [{
     { path: 'profile/:id', component: ProfilePageComponent },
     // { path: 'settings', component: SettingsPageComponent },
     { path: 'search', component: SearchPageComponent },
-    // {
-    //   path: 'chats',
-    //   loadChildren: () => chatsRoutes,
-    // },
+    {
+      path: 'chats',
+      loadChildren: () => chatsRoutes,
+    },
   ],
    canActivate: [canActivateAuth],
 },
