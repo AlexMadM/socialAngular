@@ -7,10 +7,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 
-export type Callback<D = void, R = void> = (data?: D) => R;
-type ControlValue = string | null;
-type InputValue = Extract<ControlValue, string>;
-
 @Component({
   selector: 'tt-input',
   standalone: true,
@@ -28,9 +24,11 @@ type InputValue = Extract<ControlValue, string>;
 export class TtInputComponent implements ControlValueAccessor {
   type = input<'text' | 'password'>('text');
   placeholder = input<string>();
-  private onChange?: Callback<InputValue>;
-  private onTouched?: Callback;
+
   disabled = signal<boolean>(false);
+
+  onChange: any;
+  onTouched: any;
 
   value: string | null = null;
 
@@ -50,8 +48,7 @@ export class TtInputComponent implements ControlValueAccessor {
     this.disabled.set(isDisabled);
   }
 
-  onModelChange(val: string | null): void {
-    // @ts-ignore
-    this.onChange(val);
-  }
+    onModelChange(val: string | null): void {
+      this.onChange(val);
+    }
 }
